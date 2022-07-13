@@ -1,15 +1,25 @@
-import './App.css';
-import Header from './components/header/Header';
+import "./assets/css/main.css";
+import Layout from "./components/layout/Layout";
 
 const App = () => {
-
+  const x = "Title1";
+  const y = "Title2";
+  const z = "Title3";
 
   return (
-    <>
-      <Header/>
-      <h1>Barev Dzez</h1>
-    </>
+    <div className="app">
+     <Layout x={x} y={y} z={z}>
+       <div>asdasdasd</div>
+       <div>asdasdasd</div> 
+       <div>asdasdasd</div>
+       <div>asdasdasd</div> 
+       <div>asdasdasd</div>
+       <div>asdasdasd</div> 
+       <div>asdasdasd</div>
+       <div>asdasdasd</div>
+     </Layout>
+    </div>
   );
-}
+};
 
 export default App;
