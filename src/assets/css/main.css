@@ -6,3 +6,11 @@
 ul{
     list-style-type: none;
 }
+
+.visible{
+    background-color: green;
+}
+.hidden{
+    background-color: red;
+
+}
