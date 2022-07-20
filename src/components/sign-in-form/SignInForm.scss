@@ -1,0 +1,9 @@
+.wrapper {
+  background-color: red;
+  &-title {
+    font-size: 68px;
+    &-n {
+      font-weight: 700;
+    }
+  }
+}
