@@ -1,8 +1,11 @@
 import React, { useState, useRef, useContext } from "react";
-import { TodoContext } from "./TodoCtx";
+import { useEffect } from "react";
+import { forwardRef } from "react";
+import { addTodo } from "../../context/todos/TodosActionCreators";
+import { TodosContext } from "../../context/todos/TodosState";
 
-const TodosHead = () => {
-  const { onAddItem } = useContext(TodoContext);
+const TodosHead = forwardRef((props, ref) => {
+  const { dispatch } = useContext(TodosContext);
   const [val, setVal] = useState("");
   const [error, setError] = useState("");
   const inputRef = useRef(null);
@@ -13,7 +16,7 @@ const TodosHead = () => {
       setError("Please, write todo name");
       return;
     }
-    onAddItem(val);
+    dispatch(addTodo(val));
     setVal("");
     setError("");
     inputRef.current.style.border = "none";
@@ -25,8 +28,13 @@ const TodosHead = () => {
     }
   };
 
+  useEffect(() => {
+    console.log("asdasd");
+    if (ref.current) console.log(ref.current);
+  }, [ref]);
+
   return (
-    <div className="todos-head">
+    <div className="todos-head" ref={ref}>
       <input
         ref={inputRef}
         type="text"
@@ -38,6 +46,6 @@ const TodosHead = () => {
       <button onClick={handleBtn}>Add</button>
     </div>
   );
-};
+});
 
 export default TodosHead;

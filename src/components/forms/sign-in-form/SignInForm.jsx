@@ -9,9 +9,9 @@ const SignInForm = () => {
     firstName: "",
   });
 
-  useEffect(() => {
-    console.log(inputs);
-  }, [inputs]);
+  // useEffect(() => {
+  //   console.log(inputs);
+  // }, [inputs]);
 
   const handleInput = (value, name) => {
     setInputs((prev) => {

@@ -1,14 +1,15 @@
 import { useContext } from "react";
-import { TodoContext } from "./TodoCtx";
+import { removeTodo } from "../../context/todos/TodosActionCreators";
+import { TodosContext } from "../../context/todos/TodosState";
 
-const TodoListItem = ({ item }) => {
-  const { deleteItem } = useContext(TodoContext);
+const TodoListItem = ({ item, idx }) => {
+  const { dispatch } = useContext(TodosContext);
 
   return (
     <div className="todos-list-item">
       <p className="todos-list-item-title">{item.title}</p>
       <button
-        onClick={() => deleteItem(item.id)}
+        onClick={() => dispatch(removeTodo(idx))}
         className="todos-list-item-del"
       >
         del

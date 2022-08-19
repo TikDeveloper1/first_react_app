@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
-import { TodoContext } from "./TodoCtx";
+import { TodosContext } from "../../context/todos/TodosState";
 import TodoListItem from "./TodoListItem";
 
 const TodoList = () => {
-  const { items } = useContext(TodoContext);
+  const { todosStore } = useContext(TodosContext);
 
   return (
     <div className="todos-list">
-      {items.map((item) => {
-        return <TodoListItem key={item.id} item={item} />;
+      {todosStore.todos.map((item, idx) => {
+        return <TodoListItem key={idx} item={item} idx={idx} />;
       })}
     </div>
   );
